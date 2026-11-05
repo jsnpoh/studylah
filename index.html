@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A calm, private space to keep track of your study sessions."
+    />
+    <title>StudyLah — your study space</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="src/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="StudyLah home">
+          <span class="brand-mark" aria-hidden="true">s</span>
+          <span>studylah</span>
+        </a>
+        <span class="privacy-note"><span aria-hidden="true">✦</span> Just for you</span>
+      </header>
+
+      <main>
+        <section class="welcome" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+            <h1 id="page-title">Small steps, <span>big progress.</span></h1>
+            <p class="welcome-copy">Keep showing up for yourself. It all adds up.</p>
+          </div>
+          <div class="date-badge" id="today-label"></div>
+        </section>
+
+        <section class="summary-grid" aria-label="Study summary">
+          <article class="summary-card summary-primary">
+            <span class="summary-icon" aria-hidden="true">◷</span>
+            <div>
+              <p class="summary-label">This week</p>
+              <p class="summary-value" id="week-time">0 min</p>
+              <p class="summary-detail">time well spent</p>
+            </div>
+            <span class="card-sparkle" aria-hidden="true">✳</span>
+          </article>
+          <article class="summary-card">
+            <span class="summary-icon icon-lilac" aria-hidden="true">✓</span>
+            <div>
+              <p class="summary-label">Sessions</p>
+              <p class="summary-value" id="session-count">0</p>
+              <p class="summary-detail">logged in total</p>
+            </div>
+          </article>
+          <article class="summary-card">
+            <span class="summary-icon icon-peach" aria-hidden="true">✎</span>
+            <div>
+              <p class="summary-label">Subjects</p>
+              <p class="summary-value" id="subject-count">0</p>
+              <p class="summary-detail">you've explored</p>
+            </div>
+          </article>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel log-panel" aria-labelledby="log-title">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">A LITTLE PROGRESS</p>
+                <h2 id="log-title">Log a session</h2>
+              </div>
+              <span class="heading-emoji" aria-hidden="true">🌱</span>
+            </div>
+            <form id="session-form">
+              <label for="subject">What did you study?</label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                placeholder="e.g. Biology, Japanese..."
+                maxlength="60"
+                required
+              />
+
+              <div class="field-row">
+                <div>
+                  <label for="duration">How long?</label>
+                  <div class="input-suffix">
+                    <input
+                      id="duration"
+                      name="duration"
+                      type="number"
+                      min="1"
+                      max="1440"
+                      step="1"
+                      placeholder="45"
+                      required
+                    />
+                    <span>min</span>
+                  </div>
+                </div>
+                <div>
+                  <label for="session-date">When?</label>
+                  <input id="session-date" name="date" type="date" required />
+                </div>
+              </div>
+
+              <label for="notes">A note to future you <span class="optional">(optional)</span></label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                maxlength="240"
+                placeholder="What clicked? What will you pick up next time?"
+              ></textarea>
+              <button class="submit-button" type="submit">
+                <span aria-hidden="true">＋</span> Save session
+              </button>
+              <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="panel history-panel" aria-labelledby="history-title">
+            <div class="panel-heading history-heading">
+              <div>
+                <p class="eyebrow">LOOK HOW FAR YOU'VE COME</p>
+                <h2 id="history-title">Recent sessions</h2>
+              </div>
+              <span class="session-total" id="history-total">0 sessions</span>
+            </div>
+            <div class="session-list" id="session-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </main>
+      <footer>Made for your own pace <span aria-hidden="true">♡</span> Your study log stays on this device.</footer>
+    </div>
+  </body>
+</html>
